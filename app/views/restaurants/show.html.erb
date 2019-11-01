@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>ID:</strong>
+  <%= @restaurant.id %>
+</p>
+
+
+<p>
+  <strong>店舗名:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>店長:</strong>
+  <%= @restaurant.owner.split("") %>
+</p>
+
+<p>
+  <strong>オープン日:</strong>
+  <%= @restaurant.open %>
+</p>
+
+<p>
+  <strong>Tell:</strong>
+  <%= @restaurant.tell %>
+</p>
+
+<p>
+  <strong>住所:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>営業日:</strong>
+  <%= @restaurant.businessday %>
+</p>
+
+<p>
+  <strong>HP:</strong>
+  <%= link_to "#{@restaurant.hp}", "#{@restaurant.hp}", target: :blank %>
+</p>
+
+
+<%= link_to '編集', edit_restaurant_path(@restaurant) %> |
+<%= link_to '戻る', restaurants_path %>

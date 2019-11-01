@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>クロコ店舗一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>店舗名</th>
+      <th>店長</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.id %></td>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.owner %></td>
+        <td><%= link_to '詳細情報', restaurant %></td>
+        <td><%= link_to '編集', edit_restaurant_path(restaurant) %></td>
+        <td><%= link_to '削除', restaurant, method: :delete, data: { confirm: "#{restaurant.name}の情報を削除しますか？" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+      <%= form_tag(controller:"restaurants", action:"search") do %>
+    <tr><th>店舗名</th>
+        <th><%= text_field_tag("find") %><%= submit_tag("検索") %></th></tr>
+    </tr>
+    <% end %>
+    
+    <%= form_tag(controller:"restaurants", action:"sort") do %>
+<tr><th>並び替える</th>
+  <th><%= select_tag(:id, options_for_select([["新しい順","新しい順"],["古い順","古い順"],["店舗オープン日の新しい順","店舗オープン日の新しい順"],["店舗オープン日の古い順","店舗オープン日の古い順"]])) %>
+<%= submit_tag "並び替え" %></th></tr>
+<% end %>
+
+</table>
+
+<br>
+<h1><%= link_to '新規店舗登録', new_restaurant_path %></h1>

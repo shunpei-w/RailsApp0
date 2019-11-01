@@ -1,0 +1,52 @@
+<%= form_with(model: restaurant, local: true) do |form| %>
+  <% if restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "店舗名" %>
+    <%= form.text_area :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label "店長" %>
+    <%= form.text_area :owner %>
+  </div>
+
+  <div class="field">
+    <%= form.label "開店日 ※例2018年1月1日 ⇨ 20180101" %>
+    <%= form.number_field :open %>
+  </div>
+
+  <div class="field">
+    <%= form.label "TELL" %>
+    <%= form.text_area :tell %>
+  </div>
+
+  <div class="field">
+    <%= form.label "住所" %>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label "営業日" %>
+    <%= form.text_area :businessday %>
+  </div>
+
+  <div class="field">
+    <%= form.label "HP" %>
+    <%= form.text_area :hp %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

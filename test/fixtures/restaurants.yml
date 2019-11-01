@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  owner: MyText
+  open: MyText
+  tell: MyText
+  address: MyText
+  businessday: MyText
+
+two:
+  name: MyText
+  owner: MyText
+  open: MyText
+  tell: MyText
+  address: MyText
+  businessday: MyText

@@ -1,0 +1,13 @@
+<h1>検索結果</h1>
+
+
+
+<table>
+    <% @search.each do |obj| %>
+    <tr>
+        <th>店舗名:</th><td><td><%=link_to(obj.name, "/restaurants/#{obj.id}") %></td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to '戻る', restaurants_path %>
